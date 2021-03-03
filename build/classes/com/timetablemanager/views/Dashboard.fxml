@@ -158,7 +158,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="216.0" stylesheets="@../stylesheets/dashboard.css">
                <children>
-                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Sessions" textFill="WHITE">
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Manage" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="20.0" />
                      </font>

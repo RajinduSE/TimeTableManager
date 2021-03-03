@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetablemanager.controllers.GroupRoomController">
+    <children>
+        <fx:include source="MainTheme.fxml" />
+      <VBox alignment="CENTER" layoutX="250.0" layoutY="73.0" prefHeight="53.0" prefWidth="953.0">
+         <children>
+            <Label text="Rooms For A Group Or Sub-group">
+               <font>
+                  <Font name="Calibri Bold" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="726.0" layoutY="139.0" prefHeight="513.0" prefWidth="210.0">
+         <children>
+            <TableView prefHeight="517.0" prefWidth="210.0">
+              <columns>
+                <TableColumn prefWidth="105.0" text="Group" />
+                <TableColumn prefWidth="104.0" text="Room" />
+              </columns>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox layoutX="972.0" layoutY="139.0" prefHeight="530.0" prefWidth="210.0">
+         <children>
+            <TableView prefHeight="508.0" prefWidth="210.0">
+              <columns>
+                <TableColumn prefWidth="103.0" text="Sub-Group" />
+                <TableColumn prefWidth="106.0" text="Room" />
+              </columns>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox layoutX="249.0" layoutY="139.0" prefHeight="397.0" prefWidth="445.0">
+         <children>
+            <HBox prefHeight="105.0" prefWidth="445.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="132.0" prefWidth="228.0">
+                     <children>
+                        <Label text="Group">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="132.0" prefWidth="228.0">
+                     <children>
+                        <ComboBox prefHeight="31.0" prefWidth="170.0" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="105.0" prefWidth="445.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="132.0" prefWidth="228.0">
+                     <children>
+                        <Label text="Subgroup">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="132.0" prefWidth="228.0">
+                     <children>
+                        <ComboBox prefHeight="31.0" prefWidth="170.0" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="105.0" prefWidth="445.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="132.0" prefWidth="228.0">
+                     <children>
+                        <Label text="Room">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="132.0" prefWidth="228.0">
+                     <children>
+                        <ComboBox prefHeight="31.0" prefWidth="170.0" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </HBox>
+         </children></VBox>
+              <Button layoutX="434.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconfinder_Delete_2290850.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Button layoutX="564.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconfinder_floppy_285657.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>           
+    </children>
+</AnchorPane>

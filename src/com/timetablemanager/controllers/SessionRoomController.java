@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author Rajindu's PC
  */
-public class MainDashboardController implements Initializable {
+public class SessionRoomController implements Initializable {
 
     /**
      * Initializes the controller class.
