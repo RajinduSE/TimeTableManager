@@ -8,7 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="TimeTableManager.jar" size="339736" download="eager" />
+    <jar href="TimeTableManager.jar" size="367244" download="eager" />
+    <jar href="lib\mysql-connector-java-8.0.23.jar" size="2415211" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="TimeTableManager" >
     <param name="requiredFXVersion" value="8.0+"/>

@@ -13,14 +13,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetablemanager.controllers.TagRoomsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetablemanager.controllers.LecturerRoomController">
     <children>
         <fx:include source="MainTheme.fxml" />
-      <VBox layoutX="731.0" layoutY="115.0" prefHeight="505.0" prefWidth="172.0">
+      <VBox alignment="TOP_CENTER" layoutX="248.0" layoutY="81.0" prefHeight="55.0" prefWidth="927.0">
          <children>
-            <TableView prefHeight="505.0" prefWidth="184.0">
+            <Label text="Rooms For a Lecturer">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="807.0" layoutY="136.0" prefHeight="487.0" prefWidth="396.0">
+         <children>
+            <TableView prefHeight="488.0" prefWidth="366.0">
               <columns>
-                <TableColumn prefWidth="171.0" text="Lecture/Tutorial" />
+                <TableColumn prefWidth="226.0" text="Lecturer" />
+                  <TableColumn prefWidth="143.0" text="Room" />
               </columns>
                <effect>
                   <DropShadow />
@@ -28,47 +38,35 @@
             </TableView>
          </children>
       </VBox>
-      <VBox layoutX="978.0" layoutY="115.0" prefHeight="505.0" prefWidth="172.0">
+      <VBox layoutX="325.0" layoutY="136.0" prefHeight="317.0" prefWidth="471.0">
          <children>
-            <TableView prefHeight="505.0" prefWidth="184.0">
-               <columns>
-                  <TableColumn prefWidth="171.0" text="Practical" />
-               </columns>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </TableView>
-         </children>
-      </VBox>
-      <VBox layoutX="272.0" layoutY="115.0" prefHeight="321.0" prefWidth="392.0">
-         <children>
-            <HBox prefHeight="255.0" prefWidth="392.0">
+            <HBox prefHeight="244.0" prefWidth="471.0">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="220.0" prefWidth="205.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="238.0" prefWidth="233.0">
                      <children>
-                        <Label text="Tag">
+                        <Label text="Lecturer">
                            <font>
-                              <Font name="System Bold" size="21.0" />
+                              <Font name="System Bold" size="19.0" />
                            </font>
                         </Label>
-                        <ComboBox prefWidth="150.0" />
+                        <ComboBox prefWidth="238.0" />
                      </children>
                   </VBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="220.0" prefWidth="205.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="238.0" prefWidth="233.0">
                      <children>
                         <Label text="Room">
                            <font>
-                              <Font name="System Bold" size="21.0" />
+                              <Font name="System Bold" size="19.0" />
                            </font>
                         </Label>
-                        <ComboBox prefWidth="150.0" />
+                        <ComboBox prefHeight="31.0" prefWidth="144.0" />
                      </children>
                   </VBox>
                </children>
             </HBox>
          </children>
       </VBox>
-            <Button layoutX="417.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+        <Button layoutX="538.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -82,7 +80,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button layoutX="564.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
+      <Button layoutX="670.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>

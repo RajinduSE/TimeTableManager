@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1230.0" style="-fx-background-color: #5CB3FF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetablemanager.controllers.DashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1230.0" style="-fx-background-color: #5CB3FF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetablemanager.controllers.MainThemeController">
    <children>
       <VBox prefHeight="680.0" prefWidth="216.0">
          <children>
@@ -35,11 +35,15 @@
             </VBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="216.0" stylesheets="@../stylesheets/dashboard.css">
                <children>
-                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Working Days &amp; Hours" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="20.0" />
-                     </font>
-                  </Label>
+                  <Button fx:id="btnWorkDaysHrs" mnemonicParsing="false" onAction="#navigateWorkDaysHrs" text="Button">
+                     <graphic>
+                        <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Working Days &amp; Hours" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets top="5.0" />
@@ -55,11 +59,15 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="216.0" stylesheets="@../stylesheets/dashboard.css">
                <children>
-                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Lecturers" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="20.0" />
-                     </font>
-                  </Label>
+                  <Button fx:id="btnLectures" mnemonicParsing="false" onAction="#navigateLectures" text="Button">
+                     <graphic>
+                        <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Lecturers" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets top="5.0" />
@@ -75,11 +83,15 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="216.0" stylesheets="@../stylesheets/dashboard.css">
                <children>
-                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Subjects" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="20.0" />
-                     </font>
-                  </Label>
+                  <Button fx:id="btnSubjects" mnemonicParsing="false" onAction="#navigateSubjects" text="Button">
+                     <graphic>
+                        <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Subjects" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets top="5.0" />
@@ -95,11 +107,15 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="216.0" stylesheets="@../stylesheets/dashboard.css">
                <children>
-                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Students" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="20.0" />
-                     </font>
-                  </Label>
+                  <Button fx:id="btnStudentGroups" mnemonicParsing="false" onAction="#navigateStudentGroups" text="Button">
+                     <graphic>
+                        <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Students Groups" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets top="5.0" />
@@ -115,11 +131,15 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="216.0" stylesheets="@../stylesheets/dashboard.css">
                <children>
-                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Tags" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="20.0" />
-                     </font>
-                  </Label>
+                  <Button fx:id="btnTags" mnemonicParsing="false" onAction="#navigateTags" text="Button">
+                     <graphic>
+                        <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Tags" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets top="5.0" />
@@ -135,11 +155,15 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="216.0" stylesheets="@../stylesheets/dashboard.css">
                <children>
-                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Locations" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="20.0" />
-                     </font>
-                  </Label>
+                  <Button fx:id="btnLocations" mnemonicParsing="false" onAction="#navigateLocations" text="Button">
+                     <graphic>
+                        <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Locations" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets top="5.0" />
@@ -155,11 +179,15 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="216.0" stylesheets="@../stylesheets/dashboard.css">
                <children>
-                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Manage" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="20.0" />
-                     </font>
-                  </Label>
+                  <Button fx:id="btnManage" mnemonicParsing="false" onAction="#navigateManage" text="Button">
+                     <graphic>
+                        <Label alignment="CENTER" prefHeight="41.0" prefWidth="189.0" text="Manage" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets top="5.0" />
@@ -177,7 +205,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="216.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="69.0" prefWidth="146.0" style="-fx-border-radius: 50; -fx-background-radius: 50;" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Generate" textFill="WHITE">
+                        <Button fx:id="btnGenerate" mnemonicParsing="false" onAction="#generateTimeTable" prefHeight="69.0" prefWidth="146.0" style="-fx-border-radius: 50; -fx-background-radius: 50;" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Generate" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -199,7 +227,7 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="82.0" prefWidth="498.0">
                            <children>
-                              <TextField alignment="CENTER" prefHeight="46.0" prefWidth="209.0" promptText="02/27/2021" style="-fx-background-radius: 50;">
+                              <TextField fx:id="tfDate" alignment="CENTER" editable="false" prefHeight="46.0" prefWidth="209.0" promptText="02/27/2021" style="-fx-background-radius: 50;">
                                  <effect>
                                     <DropShadow blurType="ONE_PASS_BOX" color="#b99494" height="2.0" radius="0.5" width="2.0" />
                                  </effect></TextField>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetablemanager.controllers.SessionController">
+    <children>
+        <fx:include source="MainTheme.fxml" />
+      <VBox alignment="CENTER" layoutX="247.0" layoutY="79.0" prefHeight="37.0" prefWidth="954.0">
+         <children>
+            <Label text="Sessions">
+               <font>
+                  <Font name="Calibri Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="247.0" layoutY="133.0" prefHeight="275.0" prefWidth="820.0">
+         <children>
+            <TableView prefHeight="275.0" prefWidth="823.0">
+              <columns>
+                <TableColumn prefWidth="49.0" text="ID" />
+                <TableColumn prefWidth="118.0" text="Lecturer 1" />
+                  <TableColumn prefWidth="108.0" text="Lecturer 2" />
+                  <TableColumn prefWidth="75.0" text="Tag" />
+                  <TableColumn prefWidth="108.0" text="Subject" />
+                  <TableColumn prefWidth="99.0" text="Subject Code" />
+                  <TableColumn prefWidth="99.0" text="Group/Sub" />
+                  <TableColumn prefWidth="85.0" text="Count" />
+                  <TableColumn prefWidth="85.0" text="Duration" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox layoutX="247.0" layoutY="429.0" prefHeight="234.0" prefWidth="777.0">
+         <children>
+            <HBox prefHeight="204.0" prefWidth="679.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="177.0" spacing="30.0">
+                     <children>
+                        <Label text="Lecturer 1">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label text="Lecturer 2">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label text="Tag">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label text="Subject">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="173.0" spacing="20.0">
+                     <children>
+                        <ComboBox prefHeight="31.0" prefWidth="173.0" />
+                        <ComboBox prefHeight="31.0" prefWidth="176.0" />
+                        <ComboBox prefHeight="31.0" prefWidth="174.0" />
+                        <ComboBox prefHeight="31.0" prefWidth="174.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="146.0" spacing="30.0">
+                     <children>
+                        <Label text="Subject Code">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label text="Group ID">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label text="Count">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label text="Duration">
+                           <font>
+                              <Font name="Calibri Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="173.0" spacing="20.0">
+                     <children>
+                        <ComboBox prefHeight="31.0" prefWidth="173.0" />
+                        <ComboBox prefHeight="31.0" prefWidth="176.0" />
+                        <TextField />
+                        <TextField />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+                  <Button layoutX="1092.0" layoutY="151.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Update" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconfinder_button_blue_repeat_40719.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Button layoutX="1092.0" layoutY="213.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconfinder_Delete_2290850.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Button layoutX="1099.0" layoutY="419.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Clear" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconfinder_edit-clear_118917.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button layoutX="1099.0" layoutY="508.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconfinder_floppy_285657.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <Button layoutX="1017.0" layoutY="590.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="173.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Generate Session" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconfinder_Generate-keys_85518.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>    
+    </children>
+</AnchorPane>

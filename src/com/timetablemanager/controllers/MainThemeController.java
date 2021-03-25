@@ -12,16 +12,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -29,16 +23,8 @@ import javafx.stage.Stage;
  *
  * @author Rajindu's PC
  */
-public class DashboardController implements Initializable {
+public class MainThemeController implements Initializable {
 
-    @FXML
-    private BarChart<String, Number> barChart;
-    @FXML
-    private NumberAxis yHours;
-    @FXML
-    private CategoryAxis xDay;
-    @FXML
-    private Button btnLocations;
     @FXML
     private Button btnWorkDaysHrs;
     @FXML
@@ -46,16 +32,17 @@ public class DashboardController implements Initializable {
     @FXML
     private Button btnSubjects;
     @FXML
+    private Button btnStudentGroups;
+    @FXML
     private Button btnTags;
+    @FXML
+    private Button btnLocations;
     @FXML
     private Button btnManage;
     @FXML
     private Button btnGenerate;
     @FXML
     private TextField tfDate;
-    @FXML
-    private Button btnStudentGroups;
-
 
     /**
      * Initializes the controller class.
@@ -63,15 +50,6 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
-        series1.setName("Total Hours For Lectures, Tutes & Labs");
-        series1.getData().add(new XYChart.Data<>("Lecture",20));
-        series1.getData().add(new XYChart.Data<>("Tutorial",12));
-        series1.getData().add(new XYChart.Data<>("Lab",4));
-       
-        barChart.getData().add(series1);
-        
-              
     }    
 
     @FXML

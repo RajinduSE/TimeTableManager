@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,14 +18,14 @@
 
 <AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetablemanager.controllers.LocationController">
     <children>
-        <fx:include source="MainTheme.fxml" />
-      <TableView layoutX="272.0" layoutY="136.0" prefHeight="234.0" prefWidth="712.0">
+      <fx:include source="MainTheme.fxml" />
+      <TableView fx:id="tvLocations" layoutX="286.0" layoutY="123.0" onMouseClicked="#handleMouseAction" prefHeight="234.0" prefWidth="709.0">
         <columns>
-          <TableColumn prefWidth="68.0" text="ID" />
-          <TableColumn prefWidth="208.0" text="Building" />
-            <TableColumn prefWidth="119.0" text="Room" />
-            <TableColumn prefWidth="178.0" text="Room Type" />
-            <TableColumn prefWidth="140.0" text="Capacity" />
+          <TableColumn fx:id="colId" prefWidth="67.0" text="ID" />
+          <TableColumn fx:id="colBuilding" prefWidth="212.0" text="Building" />
+            <TableColumn fx:id="colRoom" prefWidth="143.0" text="Room" />
+            <TableColumn fx:id="colRoomType" prefWidth="160.0" text="Room Type" />
+            <TableColumn fx:id="colCapacity" prefWidth="126.0" text="Capacity" />
         </columns>
          <effect>
             <DropShadow />
@@ -59,8 +60,8 @@
                                     </VBox>
                                     <VBox prefHeight="201.0" prefWidth="286.0" spacing="30.0">
                                        <children>
-                                          <TextField />
-                                          <TextField />
+                                          <TextField fx:id="tfBuilding" />
+                                          <TextField fx:id="tfRoom" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -94,13 +95,16 @@
                                              <children>
                                                 <VBox prefHeight="43.0" prefWidth="130.0">
                                                    <children>
-                                                      <RadioButton mnemonicParsing="false" text="Lecture Hall">
+                                                      <RadioButton fx:id="rb1" mnemonicParsing="false" onAction="#roomTypeHandler" text="Lecture Hall">
                                                          <font>
                                                             <Font size="16.0" />
-                                                         </font></RadioButton>
+                                                         </font>
+                                                         <toggleGroup>
+                                                            <ToggleGroup fx:id="rbGender" />
+                                                         </toggleGroup></RadioButton>
                                                    </children>
                                                 </VBox>
-                                                <RadioButton mnemonicParsing="false" text="Laboratary">
+                                                <RadioButton fx:id="rb2" mnemonicParsing="false" onAction="#roomTypeHandler" text="Laboratary" toggleGroup="$rbGender">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font></RadioButton>
@@ -108,7 +112,7 @@
                                           </HBox>
                                           <HBox prefHeight="100.0" prefWidth="200.0">
                                              <children>
-                                                <TextField prefHeight="31.0" prefWidth="226.0" />
+                                                <TextField fx:id="tfCapacity" prefHeight="31.0" prefWidth="226.0" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -128,7 +132,7 @@
             <Font name="Calibri Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="1055.0" layoutY="151.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Update" textFill="WHITE">
+      <Button fx:id="btnUpdate" layoutX="1055.0" layoutY="151.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Update" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -142,7 +146,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button layoutX="1055.0" layoutY="215.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+      <Button fx:id="btnDelete" layoutX="1055.0" layoutY="215.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -156,7 +160,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button layoutX="949.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Clear" textFill="WHITE">
+      <Button fx:id="btnClear" layoutX="949.0" layoutY="573.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Clear" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -170,7 +174,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button layoutX="1068.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
+      <Button fx:id="btnSave" layoutX="1068.0" layoutY="573.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
