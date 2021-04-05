@@ -29,16 +29,17 @@
       </VBox>
       <VBox layoutX="249.0" layoutY="119.0" prefHeight="234.0" prefWidth="769.0">
          <children>
-            <TableView prefHeight="234.0" prefWidth="678.0">
+            <TableView fx:id="tvLecturers" prefHeight="234.0" prefWidth="789.0">
               <columns>
-                  <TableColumn prefWidth="128.0" text="Name" />
-                  <TableColumn prefWidth="84.0" text="EmpID" />
-                  <TableColumn prefWidth="105.0" text="Faculty" />
-                  <TableColumn prefWidth="103.0" text="Department" />
-                  <TableColumn minWidth="0.0" prefWidth="90.0" text="Center" />
-                  <TableColumn minWidth="2.0" prefWidth="97.0" text="Building" />
-                  <TableColumn minWidth="0.0" prefWidth="70.0" text="Level" />
-                  <TableColumn prefWidth="91.0" text="Rank" />
+                  <TableColumn fx:id="colId" prefWidth="69.0" text="ID" />
+                  <TableColumn fx:id="colName" prefWidth="187.0" text="Name" />
+                  <TableColumn fx:id="colEmpId" prefWidth="90.0" text="EmpID" />
+                  <TableColumn fx:id="colDepartment" prefWidth="135.0" text="Department" />
+                  <TableColumn fx:id="colFaculty" prefWidth="135.0" text="Faculty" />
+                  <TableColumn fx:id="colCenter" minWidth="0.0" prefWidth="121.0" text="Center" />
+                  <TableColumn fx:id="colBuilding" minWidth="2.0" prefWidth="121.0" text="Building" />
+                  <TableColumn fx:id="colLevel" minWidth="0.0" prefWidth="97.0" text="Level" />
+                  <TableColumn fx:id="colRank" prefWidth="111.0" text="Rank" />
               </columns>
                <effect>
                   <DropShadow />
@@ -80,10 +81,10 @@
                               </VBox>
                               <VBox prefHeight="259.0" prefWidth="221.0" spacing="20.0">
                                  <children>
-                                    <TextField />
-                                    <TextField />
-                                    <ComboBox prefHeight="31.0" prefWidth="217.0" />
-                                    <ComboBox prefHeight="31.0" prefWidth="218.0" />
+                                    <TextField fx:id="tfName" />
+                                    <TextField fx:id="tfEmpId" />
+                                    <ComboBox fx:id="cbFaculty" onAction="#facultyChange" prefHeight="31.0" prefWidth="217.0" promptText="Select Faculty" />
+                                    <ComboBox fx:id="cbDepartment" onAction="#departmentChange" prefHeight="31.0" prefWidth="218.0" promptText="Select Department" />
                                  </children>
                               </VBox>
                            </children>
@@ -123,10 +124,10 @@
                               </VBox>
                               <VBox prefHeight="259.0" prefWidth="221.0" spacing="20.0">
                                  <children>
-                                    <ComboBox prefHeight="31.0" prefWidth="209.0" />
-                                    <ComboBox prefHeight="31.0" prefWidth="208.0" />
-                                    <ComboBox prefHeight="31.0" prefWidth="211.0" />
-                                    <TextField prefHeight="31.0" prefWidth="171.0" />
+                                    <ComboBox fx:id="cbCenter" onAction="#centerChange" prefHeight="31.0" prefWidth="209.0" promptText="Select Center" />
+                                    <ComboBox fx:id="cbBuilding" onAction="#buildingChange" prefHeight="31.0" prefWidth="208.0" promptText="Select Building" />
+                                    <ComboBox fx:id="cbLevel" onAction="#levelChange" prefHeight="31.0" prefWidth="211.0" promptText="Select Level" />
+                                    <TextField fx:id="tfRank" prefHeight="31.0" prefWidth="171.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -137,7 +138,7 @@
             </HBox>
          </children>
       </VBox>
-            <Button layoutX="1092.0" layoutY="151.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Update" textFill="WHITE">
+            <Button fx:id="btnUpdate" layoutX="1092.0" layoutY="151.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Update" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -151,7 +152,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button layoutX="1092.0" layoutY="213.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+      <Button fx:id="btnDelete" layoutX="1092.0" layoutY="219.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -165,7 +166,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button layoutX="1099.0" layoutY="419.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Clear" textFill="WHITE">
+      <Button fx:id="btnClear" layoutX="1099.0" layoutY="419.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Clear" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -180,7 +181,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button layoutX="1099.0" layoutY="508.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
+      <Button fx:id="btnSave" layoutX="1099.0" layoutY="508.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -194,7 +195,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Button layoutX="1031.0" layoutY="590.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="159.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Generate Rank" textFill="WHITE">
+      <Button fx:id="btnGenarate" layoutX="1031.0" layoutY="590.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="159.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Generate Rank" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
