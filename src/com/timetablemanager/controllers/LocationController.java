@@ -8,6 +8,7 @@ package com.timetablemanager.controllers;
 import com.timetablemanager.models.Location;
 import com.timetablemanager.utils.ConnectionUtil;
 import com.timetablemanager.utils.IDGenerator;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -15,8 +16,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,7 +31,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -162,12 +171,14 @@ public class LocationController implements Initializable {
     }
     
     private void insertRecord(){
-        IDGenerator nextId = new IDGenerator();
-        String nextgeneratedId = nextId.generateId("locations", "R");
-        String query = "INSERT INTO locations VALUES (" + "'" + nextgeneratedId + "'" + ",'" + tfBuilding.getText() + "','" + tfRoom.getText() + "',"
-                + "'" + roomType + "'" + "," + Integer.parseInt(tfCapacity.getText()) + ")";
-        executeQuery(query);
-        showLocations();
+        if(validateEmptyFields()){
+            IDGenerator nextId = new IDGenerator();
+            String nextgeneratedId = nextId.generateId("locations", "R");
+            String query = "INSERT INTO locations VALUES (" + "'" + nextgeneratedId + "'" + ",'" + tfBuilding.getText() + "','" + tfRoom.getText() + "',"
+                    + "'" + roomType + "'" + "," + Integer.parseInt(tfCapacity.getText()) + ")";
+            executeQuery(query);
+            showLocations();
+        }
     }
     
     private void updateRecord(){
@@ -207,5 +218,21 @@ public class LocationController implements Initializable {
                 ex.printStackTrace();
             }
         }
+    }
+    
+    private boolean validateEmptyFields() {
+        if(tfBuilding.getText().isEmpty() || tfRoom.getText().isEmpty() || roomType.isEmpty() || tfCapacity.getText().isEmpty()){
+           Alert alert = new Alert(AlertType.ERROR);
+           alert.setTitle("Empty Fields");
+           alert.setHeaderText(null);
+           alert.setHeaderText("Please Enter Into The Fields");
+           alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.println("Pressed OK.");
+            }
+           });
+           return false;
+        }
+        return true;
     }
 }

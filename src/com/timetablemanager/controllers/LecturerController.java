@@ -78,7 +78,7 @@ public class LecturerController implements Initializable {
     @FXML
     private TableColumn<Lecturer, Integer> colLevel;
     @FXML
-    private TableColumn<Lecturer, Integer> colRank;
+    private TableColumn<Lecturer, String> colRank;
     @FXML
     private TableView<Lecturer> tvLecturers;
     
@@ -128,7 +128,7 @@ public class LecturerController implements Initializable {
             rs = st.executeQuery(query);
             Lecturer lecturer;
             while(rs.next()){
-                lecturer = new Lecturer(rs.getString("id"), rs.getString("name"), rs.getInt("empId"), rs.getString("department"),rs.getString("center"),rs.getString("building"),rs.getString("faculty"),rs.getInt("level"),rs.getInt("rank")); //"<sql table column name not model attribute name>"
+                lecturer = new Lecturer(rs.getString("id"), rs.getString("name"), rs.getInt("empId"), rs.getString("department"),rs.getString("center"),rs.getString("building"),rs.getString("faculty"),rs.getInt("level"),rs.getString("rank")); //"<sql table column name not model attribute name>"
                 lecturerList.add(lecturer);
             }   
         }catch(Exception ex){
@@ -156,7 +156,7 @@ public class LecturerController implements Initializable {
         colCenter.setCellValueFactory(new PropertyValueFactory<Lecturer, String>("center"));
         colBuilding.setCellValueFactory(new PropertyValueFactory<Lecturer, String>("building"));
         colLevel.setCellValueFactory(new PropertyValueFactory<Lecturer, Integer>("level"));
-        colRank.setCellValueFactory(new PropertyValueFactory<Lecturer, Integer>("rank"));
+        colRank.setCellValueFactory(new PropertyValueFactory<Lecturer, String>("rank"));
         
         tvLecturers.setItems(list);
     }

@@ -127,7 +127,7 @@
                                     <ComboBox fx:id="cbCenter" onAction="#centerChange" prefHeight="31.0" prefWidth="209.0" promptText="Select Center" />
                                     <ComboBox fx:id="cbBuilding" onAction="#buildingChange" prefHeight="31.0" prefWidth="208.0" promptText="Select Building" />
                                     <ComboBox fx:id="cbLevel" onAction="#levelChange" prefHeight="31.0" prefWidth="211.0" promptText="Select Level" />
-                                    <TextField fx:id="tfRank" prefHeight="31.0" prefWidth="171.0" />
+                                    <TextField fx:id="tfRank" disable="true" editable="false" prefHeight="31.0" prefWidth="171.0" />
                                  </children>
                               </VBox>
                            </children>

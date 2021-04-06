@@ -19,7 +19,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="132.0" prefWidth="216.0" stylesheets="@../stylesheets/dashboard.css">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="94.0" style="-fx-background-radius: 15;" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css">
+                  <Button fx:id="btnDashboard" mnemonicParsing="false" onAction="#navigateDashboard" prefHeight="85.0" prefWidth="94.0" style="-fx-background-radius: 15;" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css">
                      <graphic>
                         <ImageView fitHeight="127.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>

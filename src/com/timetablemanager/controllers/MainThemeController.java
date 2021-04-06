@@ -7,6 +7,8 @@ package com.timetablemanager.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,6 +45,8 @@ public class MainThemeController implements Initializable {
     private Button btnGenerate;
     @FXML
     private TextField tfDate;
+    @FXML
+    private Button btnDashboard;
 
     /**
      * Initializes the controller class.
@@ -50,19 +54,22 @@ public class MainThemeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Date date = new Date();
+        SimpleDateFormat formattedDate = new SimpleDateFormat("MM/dd/yyyy");
+        tfDate.setText(String.valueOf(formattedDate.format(date)));
     }    
 
     @FXML
     private void navigateLocations(ActionEvent event) {
         try {
             Stage stage = (Stage)btnLocations.getScene().getWindow();
-            stage.close();
             Stage locationStage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/Location.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
             locationStage.show();
+            stage.close();
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -77,13 +84,13 @@ public class MainThemeController implements Initializable {
     private void navigateLectures(ActionEvent event) {
         try {
             Stage stage = (Stage)btnLectures.getScene().getWindow();
-            stage.close();
             Stage locationStage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/Lecturer.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
             locationStage.show();
+            stage.close();
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -94,13 +101,13 @@ public class MainThemeController implements Initializable {
     private void navigateSubjects(ActionEvent event) {
         try {
             Stage stage = (Stage)btnSubjects.getScene().getWindow();
-            stage.close();
             Stage locationStage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/Subject.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
             locationStage.show();
+            stage.close();
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -116,13 +123,13 @@ public class MainThemeController implements Initializable {
     private void navigateManage(ActionEvent event) {
         try {
             Stage stage = (Stage)btnManage.getScene().getWindow();
-            stage.close();
             Stage locationStage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/Manage.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
             locationStage.show();
+            stage.close();
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -135,6 +142,23 @@ public class MainThemeController implements Initializable {
 
     @FXML
     private void navigateStudentGroups(ActionEvent event) {
+    }
+
+    @FXML
+    private void navigateDashboard(ActionEvent event) {
+        try {
+            Stage stage = (Stage)btnManage.getScene().getWindow();
+            Stage locationStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/Dashboard.fxml"));
+            locationStage.setResizable(false);
+            Scene scene = new Scene(root);
+            locationStage.setScene(scene);
+            locationStage.show();
+            stage.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
 }

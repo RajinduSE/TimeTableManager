@@ -18,9 +18,9 @@ public class Lecturer {
     private String building;
     private String faculty;
     private int level;
-    private int rank;
+    private String rank;
 
-    public Lecturer(String id, String name, int empId, String department, String center, String building, String faculty, int level, int rank) {
+    public Lecturer(String id, String name, int empId, String department, String center, String building, String faculty, int level, String rank) {
         this.id = id;
         this.name = name;
         this.empId = empId;
@@ -96,11 +96,11 @@ public class Lecturer {
         this.level = level;
     }
 
-    public int getRank() {
+    public String getRank() {
         return rank;
     }
 
-    public void setRank(int rank) {
+    public void setRank(String rank) {
         this.rank = rank;
     }
     

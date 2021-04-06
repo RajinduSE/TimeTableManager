@@ -5,10 +5,10 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.timetablemanager.controllers.SubjectController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetablemanager.controllers.SubjectController">
     <children>
         <fx:include source="MainTheme.fxml" />
       <VBox alignment="CENTER" layoutX="249.0" layoutY="76.0" prefHeight="43.0" prefWidth="955.0">
@@ -29,19 +29,19 @@
             </Label>
          </children>
       </VBox>
-      <VBox layoutX="249.0" layoutY="119.0" prefHeight="234.0" prefWidth="793.0">
+      <VBox layoutX="249.0" layoutY="119.0" prefHeight="234.0" prefWidth="769.0">
          <children>
-            <TableView prefHeight="234.0" prefWidth="678.0">
+            <TableView fx:id="tvSubjects" onMouseClicked="#handleMouseAction" prefHeight="234.0" prefWidth="678.0">
               <columns>
-                <TableColumn prefWidth="57.0" text="ID" />
-                <TableColumn prefWidth="133.0" text="Subject Name" />
-                  <TableColumn prefWidth="95.0" text="Code" />
-                  <TableColumn prefWidth="82.0" text="Year" />
-                  <TableColumn minWidth="0.0" prefWidth="81.0" text="Semester" />
-                  <TableColumn minWidth="2.0" prefWidth="98.0" text="Lecture(Hrs)" />
-                  <TableColumn minWidth="0.0" prefWidth="84.0" text="Tute(Hrs)" />
-                  <TableColumn prefWidth="77.0" text="Lab(Hrs)" />
-                  <TableColumn prefWidth="97.0" text="Eval(Hrs)" />
+                <TableColumn fx:id="colId" prefWidth="62.0" text="ID" />
+                <TableColumn fx:id="colSubject" prefWidth="211.0" text="Subject Name" />
+                  <TableColumn fx:id="colCode" prefWidth="104.0" text="Code" />
+                  <TableColumn fx:id="colYear" prefWidth="81.0" text="Year" />
+                  <TableColumn fx:id="colSemester" minWidth="0.0" prefWidth="91.0" text="Semester" />
+                  <TableColumn fx:id="colLectureHrs" minWidth="2.0" prefWidth="106.0" text="Lecture(Hrs)" />
+                  <TableColumn fx:id="colTuteHrs" minWidth="0.0" prefWidth="100.0" text="Tute(Hrs)" />
+                  <TableColumn fx:id="colLabHrs" prefWidth="99.0" text="Lab(Hrs)" />
+                  <TableColumn fx:id="colEvalHrs" prefWidth="100.0" text="Eval(Hrs)" />
               </columns>
                <effect>
                   <DropShadow />
@@ -83,27 +83,30 @@
                               </VBox>
                               <VBox prefHeight="259.0" prefWidth="235.0" spacing="20.0">
                                  <children>
-                                    <ComboBox prefHeight="31.0" prefWidth="238.0" />
+                                    <ComboBox fx:id="cbYear" onAction="#yearChanger" prefHeight="31.0" prefWidth="238.0" promptText="1" />
                                     <VBox prefHeight="33.0" prefWidth="230.0">
                                        <children>
                                           <HBox prefHeight="34.0" prefWidth="228.0">
                                              <children>
                                                 <VBox prefHeight="34.0" prefWidth="140.0">
                                                    <children>
-                                                      <RadioButton mnemonicParsing="false" text="1st Semester" />
+                                                      <RadioButton fx:id="rb1" mnemonicParsing="false" onAction="#semesterHandler" text="1st Semester">
+                                                         <toggleGroup>
+                                                            <ToggleGroup fx:id="rbSemester" />
+                                                         </toggleGroup></RadioButton>
                                                    </children>
                                                 </VBox>
                                                 <VBox prefHeight="34.0" prefWidth="140.0">
                                                    <children>
-                                                      <RadioButton mnemonicParsing="false" text="2nd Semester" />
+                                                      <RadioButton fx:id="rb2" mnemonicParsing="false" onAction="#semesterHandler" text="2nd Semester" toggleGroup="$rbSemester" />
                                                    </children>
                                                 </VBox>
                                              </children>
                                           </HBox>
                                        </children>
                                     </VBox>
-                                    <TextField />
-                                    <TextField />
+                                    <TextField fx:id="tfSubject" />
+                                    <TextField fx:id="tfCode" />
                                  </children>
                               </VBox>
                            </children>
@@ -141,12 +144,12 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </VBox>
-                              <VBox prefHeight="259.0" prefWidth="221.0" spacing="20.0">
+                              <VBox prefHeight="259.0" prefWidth="221.0" spacing="22.0">
                                  <children>
-                                    <Spinner prefHeight="31.0" prefWidth="197.0" />
-                                    <Spinner prefHeight="31.0" prefWidth="193.0" />
-                                    <Spinner prefHeight="31.0" prefWidth="197.0" />
-                                    <Spinner prefHeight="31.0" prefWidth="193.0" />
+                                    <TextField fx:id="tfLecHrs" />
+                                    <TextField fx:id="tfTuteHrs" />
+                                    <TextField fx:id="tfLabHrs" />
+                                    <TextField fx:id="tfEvalHrs" />
                                  </children>
                               </VBox>
                            </children>
@@ -157,7 +160,7 @@
             </HBox>
          </children>
       </VBox>
-            <Button layoutX="1092.0" layoutY="151.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Update" textFill="WHITE">
+            <Button fx:id="btnUpdate" layoutX="1092.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleAction" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Update" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -171,7 +174,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button layoutX="1092.0" layoutY="213.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+      <Button fx:id="btnDelete" layoutX="1092.0" layoutY="213.0" mnemonicParsing="false" onAction="#handleAction" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -185,7 +188,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button layoutX="1099.0" layoutY="419.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Clear" textFill="WHITE">
+      <Button fx:id="btnClear" layoutX="1099.0" layoutY="419.0" mnemonicParsing="false" onAction="#handleAction" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Clear" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -200,7 +203,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button layoutX="1099.0" layoutY="508.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
+      <Button fx:id="btnSave" layoutX="1099.0" layoutY="508.0" mnemonicParsing="false" onAction="#handleAction" prefHeight="47.0" prefWidth="85.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>

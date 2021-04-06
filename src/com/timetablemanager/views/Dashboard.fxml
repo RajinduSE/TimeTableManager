@@ -7,6 +7,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -22,7 +23,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="132.0" prefWidth="216.0" stylesheets="@../stylesheets/dashboard.css">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="94.0" style="-fx-background-radius: 15;" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css">
+                  <Button fx:id="btnDashboard" mnemonicParsing="false" onAction="#navigateDashboard" prefHeight="85.0" prefWidth="94.0" style="-fx-background-radius: 15;" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css">
                      <graphic>
                         <ImageView fitHeight="127.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -372,7 +373,7 @@
                                                             <Font name="Calibri Bold" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label text="3">
+                                                      <Label fx:id="lblLecCount" text="3">
                                                          <font>
                                                             <Font name="System Bold" size="32.0" />
                                                          </font>
@@ -396,7 +397,7 @@
                                                             <Font name="Calibri Bold" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label text="2">
+                                                      <Label fx:id="lblStdCount" text="2">
                                                          <font>
                                                             <Font name="System Bold" size="32.0" />
                                                          </font>
@@ -420,7 +421,7 @@
                                                             <Font name="Calibri Bold" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label text="4">
+                                                      <Label fx:id="lblSubCount" text="4">
                                                          <font>
                                                             <Font name="System Bold" size="32.0" />
                                                          </font>
@@ -444,7 +445,7 @@
                                                             <Font name="Calibri Bold" size="18.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label text="5">
+                                                      <Label fx:id="lblRoomCount" text="5">
                                                          <font>
                                                             <Font name="System Bold" size="32.0" />
                                                          </font>
@@ -483,7 +484,7 @@
                                     </Label>
                                     <HBox alignment="CENTER" prefHeight="76.0" prefWidth="203.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="104.0" style="-fx-background-radius: 35;" styleClass="view_all" stylesheets="@../stylesheets/dashboard.css" text="View All" textFill="WHITE">
+                                          <Button fx:id="btnViewLectures" mnemonicParsing="false" onAction="#viewAllLecturers" prefHeight="32.0" prefWidth="104.0" style="-fx-background-radius: 35;" styleClass="view_all" stylesheets="@../stylesheets/dashboard.css" text="View All" textFill="WHITE">
                                              <effect>
                                                 <DropShadow radius="6.0" width="5.0" />
                                              </effect>
@@ -498,6 +499,7 @@
                                     <Insets top="5.0" />
                                  </VBox.margin>
                               </HBox>
+                              <ListView fx:id="lecturerList" prefHeight="489.0" prefWidth="255.0" />
                            </children>
                         </VBox>
                      </children>
