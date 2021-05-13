@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.timetablemanager.controllers.ManageController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetablemanager.controllers.ManageController">
     <children>
         <fx:include source="MainTheme.fxml" />
       <HBox alignment="BOTTOM_LEFT" layoutX="249.0" layoutY="75.0" prefHeight="45.0" prefWidth="954.0">
@@ -29,7 +29,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="109.0" prefWidth="178.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="97.0" prefWidth="175.0" text="Session">
+                  <Button fx:id="btnMngSession" mnemonicParsing="false" onAction="#ManageSession" prefHeight="97.0" prefWidth="175.0" text="Session">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -124,7 +124,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="109.0" prefWidth="178.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="97.0" prefWidth="175.0" text="Subject">
+                  <Button fx:id="btnMngSubject" mnemonicParsing="false" onAction="#ManageSubjectRoom" prefHeight="97.0" prefWidth="175.0" text="Subject">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -139,7 +139,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="109.0" prefWidth="178.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="97.0" prefWidth="175.0" text="Tag">
+                  <Button fx:id="btnMngTag" mnemonicParsing="false" onAction="#ManageTagRoom" prefHeight="97.0" prefWidth="175.0" text="Tag">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -154,7 +154,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="109.0" prefWidth="178.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="97.0" prefWidth="175.0" text="Lecturer">
+                  <Button fx:id="btnMngLecturer" mnemonicParsing="false" onAction="#ManageLecturerRoom" prefHeight="97.0" prefWidth="175.0" text="Lecturer">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -169,7 +169,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="109.0" prefWidth="178.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="97.0" prefWidth="175.0" text="Group / SubGroup">
+                  <Button fx:id="btnMngGrp" mnemonicParsing="false" onAction="#ManageGrpRoom" prefHeight="97.0" prefWidth="175.0" text="Group / SubGroup">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>

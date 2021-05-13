@@ -18,9 +18,10 @@
         <fx:include source="MainTheme.fxml" />
       <VBox layoutX="731.0" layoutY="115.0" prefHeight="505.0" prefWidth="172.0">
          <children>
-            <TableView prefHeight="505.0" prefWidth="184.0">
+            <TableView fx:id="tvLecTuteRooms" onMouseClicked="#handleMouseActionLecTuteRooms" prefHeight="505.0" prefWidth="184.0">
               <columns>
-                <TableColumn prefWidth="171.0" text="Lecture/Tutorial" />
+                  <TableColumn fx:id="colLecTuteId" prefWidth="65.0" text="ID" />
+                <TableColumn fx:id="colLecTute" prefWidth="105.0" text="Lec/Tute" />
               </columns>
                <effect>
                   <DropShadow />
@@ -30,9 +31,10 @@
       </VBox>
       <VBox layoutX="978.0" layoutY="115.0" prefHeight="505.0" prefWidth="172.0">
          <children>
-            <TableView prefHeight="505.0" prefWidth="184.0">
+            <TableView fx:id="tvPracRooms" onMouseClicked="#handleMouseActionPracRooms" prefHeight="505.0" prefWidth="184.0">
                <columns>
-                  <TableColumn prefWidth="171.0" text="Practical" />
+                  <TableColumn fx:id="colPracId" prefWidth="66.0" text="ID" />
+                  <TableColumn fx:id="colPrac" prefWidth="105.0" text="Practical" />
                </columns>
                <effect>
                   <DropShadow />
@@ -51,7 +53,7 @@
                               <Font name="System Bold" size="21.0" />
                            </font>
                         </Label>
-                        <ComboBox prefWidth="150.0" />
+                        <ComboBox fx:id="cbTag" onAction="#changeTag" prefWidth="150.0" promptText="Select Tag" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="220.0" prefWidth="205.0">
@@ -61,14 +63,14 @@
                               <Font name="System Bold" size="21.0" />
                            </font>
                         </Label>
-                        <ComboBox prefWidth="150.0" />
+                        <ComboBox fx:id="cbRoom" disable="true" onAction="#changeRoom" prefWidth="150.0" promptText="Select Room" />
                      </children>
                   </VBox>
                </children>
             </HBox>
          </children>
       </VBox>
-            <Button layoutX="417.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+            <Button fx:id="btnDelete" layoutX="417.0" layoutY="573.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -82,7 +84,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button layoutX="564.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
+      <Button fx:id="btnSave" layoutX="564.0" layoutY="573.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>

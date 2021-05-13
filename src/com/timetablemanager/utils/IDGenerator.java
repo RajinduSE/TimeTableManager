@@ -25,10 +25,12 @@ public class IDGenerator {
         try{
             st = conn.createStatement();
             rs = st.executeQuery(query);
-             while(rs.next()){
+            if(rs.next()){
                 currentId = rs.getString("id"); 
-            }   
-             nextId = str + (Integer.parseInt(currentId.substring(str.length())) + 1);
+                nextId = str + (Integer.parseInt(currentId.substring(str.length())) + 1);
+            }else{
+                nextId = str + 1;
+            }             
         }catch(Exception ex){
             ex.printStackTrace();
         }

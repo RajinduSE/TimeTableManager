@@ -26,12 +26,13 @@
             </Label>
          </children>
       </VBox>
-      <VBox layoutX="726.0" layoutY="139.0" prefHeight="513.0" prefWidth="210.0">
+      <VBox layoutX="694.0" layoutY="139.0" prefHeight="513.0" prefWidth="250.0">
          <children>
-            <TableView prefHeight="517.0" prefWidth="210.0">
+            <TableView fx:id="tvGroupRooms" onMouseClicked="#handleMouseGroupRooms" prefHeight="508.0" prefWidth="250.0">
               <columns>
-                <TableColumn prefWidth="105.0" text="Group" />
-                <TableColumn prefWidth="104.0" text="Room" />
+                  <TableColumn fx:id="colGroupId" prefWidth="65.0" text="ID" />
+                <TableColumn fx:id="colGroup" prefWidth="95.0" text="Group" />
+                <TableColumn fx:id="colGroupRoom" prefWidth="89.0" text="Room" />
               </columns>
                <effect>
                   <DropShadow />
@@ -39,12 +40,13 @@
             </TableView>
          </children>
       </VBox>
-      <VBox layoutX="972.0" layoutY="139.0" prefHeight="530.0" prefWidth="210.0">
+      <VBox layoutX="972.0" layoutY="139.0" prefHeight="530.0" prefWidth="250.0">
          <children>
-            <TableView prefHeight="508.0" prefWidth="210.0">
+            <TableView fx:id="tvSubGroupRoom" onMouseClicked="#handleMouseSubGroupRooms" prefHeight="508.0" prefWidth="210.0">
               <columns>
-                <TableColumn prefWidth="103.0" text="Sub-Group" />
-                <TableColumn prefWidth="106.0" text="Room" />
+                  <TableColumn fx:id="colSubGroupId" prefWidth="64.0" text="ID" />
+                <TableColumn fx:id="colSubgroup" prefWidth="98.0" text="Sub-Group" />
+                <TableColumn fx:id="colSubgroupRoom" prefWidth="87.0" text="Room" />
               </columns>
                <effect>
                   <DropShadow />
@@ -67,7 +69,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="132.0" prefWidth="228.0">
                      <children>
-                        <ComboBox prefHeight="31.0" prefWidth="170.0" />
+                        <ComboBox fx:id="cbGroup" onAction="#changeGroup" prefHeight="31.0" prefWidth="170.0" promptText="Select Group" />
                      </children>
                   </VBox>
                </children>
@@ -88,7 +90,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="132.0" prefWidth="228.0">
                      <children>
-                        <ComboBox prefHeight="31.0" prefWidth="170.0" />
+                        <ComboBox fx:id="cbSubGroup" onAction="#changeSubGroup" prefHeight="31.0" prefWidth="170.0" promptText="Select Sub-Group" />
                      </children>
                   </VBox>
                </children>
@@ -109,7 +111,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="132.0" prefWidth="228.0">
                      <children>
-                        <ComboBox prefHeight="31.0" prefWidth="170.0" />
+                        <ComboBox fx:id="cbRoom" onAction="#changeRoom" prefHeight="31.0" prefWidth="170.0" promptText="Select Room" />
                      </children>
                   </VBox>
                </children>
@@ -118,7 +120,7 @@
                </VBox.margin>
             </HBox>
          </children></VBox>
-              <Button layoutX="434.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+              <Button fx:id="btnDelete" layoutX="434.0" layoutY="573.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -132,7 +134,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button layoutX="564.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
+      <Button fx:id="btnSave" layoutX="564.0" layoutY="573.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
