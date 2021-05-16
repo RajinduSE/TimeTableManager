@@ -13,12 +13,11 @@ package com.timetablemanager.utils;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-
 import com.timetablemanager.models.Day;
 import com.timetablemanager.models.Program;
 import java.sql.PreparedStatement;
-
+import com.timetablemanager.models.Day;
+import com.timetablemanager.models.Program;
 
 public class QueriesOfWorkingDays {
     
@@ -36,7 +35,9 @@ public class QueriesOfWorkingDays {
 				if(!isCreated)
 				{
 					String query = "CREATE TABLE WorkingDaysAndHours(Type INTEGER PRIMARY KEY,NumberOfWorkingDays INTEGER,WorkingTimeHours INTEGER,WorkingTimeMinutes INTEGER)";
+
 					PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);
+
 					preparedStmt.execute();
 				
 				}
@@ -57,7 +58,9 @@ public class QueriesOfWorkingDays {
 				if(!isCreated)
 				{
 					String query = "CREATE TABLE WorkingDays(Id INTEGER PRIMARY KEY AUTO_INCREMENT,Type INTEGER,Day INTEGER,isSelected VARCHAR(50))";
+
 					PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 					preparedStmt.execute();
 					
 					System.out.println("Created Table " + tableName);
@@ -105,7 +108,9 @@ public class QueriesOfWorkingDays {
 				if(!isCreated)
 				{
 					String query = "CREATE TABLE Slots(Id INTEGER PRIMARY KEY AUTO_INCREMENT,Type INTEGER,Duration INTEGER,StartTimeInHours INTEGER,StartTimeInMinutes INTEGER,EndTimeInHours INTEGER,EndTimeInMinutes INTEGER)";
+
 					PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 					preparedStmt.execute();
 					
 					System.out.println("Created Table " + tableName);
@@ -143,7 +148,9 @@ public class QueriesOfWorkingDays {
 
 				    try
 				    {
+
 						PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 						preparedStmt.setInt(1,type);
 						preparedStmt.setInt(2,value);
 						
@@ -166,6 +173,7 @@ public class QueriesOfWorkingDays {
 				    try
 				    {
 						PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 						preparedStmt.setInt(1,value);
 						preparedStmt.setInt(2,type);
 						preparedStmt.execute();
@@ -200,7 +208,9 @@ public class QueriesOfWorkingDays {
 				 
 			    try
 			    {
+
 					PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 					preparedStmt.setInt(1,hours);
 					preparedStmt.setInt(2,minutes);
 					preparedStmt.setInt(3,type);
@@ -224,7 +234,9 @@ public class QueriesOfWorkingDays {
 				 
 			    try
 			    {
+
 					PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 					preparedStmt.setInt(1,type);
 					preparedStmt.setInt(2,hours);
 					preparedStmt.setInt(3,minutes);
@@ -256,7 +268,9 @@ public class QueriesOfWorkingDays {
 			 
 		    try
 		    {
+
 				PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 				preparedStmt.setInt(1,-99);
 				preparedStmt.setInt(2,type);
 	
@@ -284,7 +298,9 @@ public class QueriesOfWorkingDays {
 			 
 		    try
 		    {
+
 				PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 				preparedStmt.setInt(1,-99);
 				preparedStmt.setInt(2,-99);
 				preparedStmt.setInt(3,type);
@@ -312,7 +328,9 @@ public class QueriesOfWorkingDays {
 			 
 		    try
 		    {
+
 				PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 				preparedStmt.setInt(1,type);
 				return preparedStmt.executeQuery();
 			} 
@@ -332,7 +350,9 @@ public class QueriesOfWorkingDays {
 			 
 		    try
 		    {
+
 				PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 				preparedStmt.setInt(1,type);
 				
 				ResultSet set = preparedStmt.executeQuery();
@@ -361,7 +381,9 @@ public class QueriesOfWorkingDays {
 			String query = " INSERT into Slots(Type,Duration,StartTimeInHours,StartTimeInMinutes,EndTimeInHours,EndTimeInMinutes)" + " VALUES (?,?,?,?,?,?)";
 		    try
 		    {
+
 				PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 				preparedStmt.setInt(1,type);
 				preparedStmt.setInt(2,duration);
 				preparedStmt.setInt(3,startHours);
@@ -394,6 +416,7 @@ public class QueriesOfWorkingDays {
 		    try
 		    {
 				PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 				preparedStmt.setInt(1,type);
 				return preparedStmt.executeQuery();
 			} 
@@ -413,7 +436,9 @@ public class QueriesOfWorkingDays {
 			 
 		    try
 		    {
+
 				PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 				preparedStmt.setInt(1,type);
 				ResultSet set = preparedStmt.executeQuery();
 				
@@ -440,6 +465,7 @@ public class QueriesOfWorkingDays {
 		    try
 		    {
 				PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 				preparedStmt.setInt(1,type);
 				return preparedStmt.executeQuery();
 			} 
@@ -459,6 +485,7 @@ public class QueriesOfWorkingDays {
 			    try
 			    {
 					PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 					preparedStmt.setString(1,String.valueOf(isTrue));
 					preparedStmt.setInt(2, type);
 					preparedStmt.setInt(3, day);
@@ -481,6 +508,7 @@ public class QueriesOfWorkingDays {
 		    try
 		    {
 				PreparedStatement preparedStmt = DatabaseHandler.conn.prepareStatement(query);;
+
 				preparedStmt.setInt(1, type);
 				preparedStmt.setInt(2, day);
 				preparedStmt.setString(3,String.valueOf(isSelected));

@@ -5,7 +5,6 @@
  */
 package com.timetablemanager.controllers;
 
-
 import java.net.URL;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

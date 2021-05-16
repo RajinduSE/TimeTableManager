@@ -16,8 +16,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 
-
-
+import java.sql.DriverManager;
 
 public class DatabaseHandler {
       private static final String USER_NAME = "root";
@@ -32,9 +31,10 @@ public class DatabaseHandler {
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			
+
                         conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/timetablemanager", "root","");
-			
-			//listener.onFinished(true);
+
+                 	//listener.onFinished(true);
 			System.out.println("Successfully Connected to the Database");
 			
 		}
