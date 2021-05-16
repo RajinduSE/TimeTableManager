@@ -74,9 +74,10 @@ public class SubjectRoomController implements Initializable {
     
     @FXML
     private void buttonHandler(ActionEvent event) {
+        SubjectRoom subjectRoom = tvSubRooms.getSelectionModel().getSelectedItem();
         if(event.getSource() == btnSave){
             insertRecord();
-        }else if(event.getSource() == btnDelete){
+        }else if(event.getSource() == btnDelete && subjectRoom != null){
             deleteRecord();
             clearRecord();
         }

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="workingDaysMainPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetablemanager.controllers.WorkingDayHourController">
+    <children>
+      <fx:include source="MainTheme.fxml" />
+      <VBox layoutX="326.0" layoutY="115.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="476.0" prefWidth="835.0">
+         <children>
+            <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="420.0" prefWidth="835.0">
+               <children>
+                  <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="424.0" prefWidth="765.0">
+                     <children>
+                        <VBox prefHeight="402.0" prefWidth="231.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <children>
+                              <VBox minHeight="-Infinity" prefHeight="392.0" prefWidth="231.0">
+                                 <children>
+                                    <Label prefHeight="23.0" prefWidth="323.0" text="Type of Working Day">
+                                       <font>
+                                          <Font name="Calibri Bold" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="23.0" prefWidth="323.0" text="No of Working Days">
+                                       <font>
+                                          <Font name="Calibri Bold" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="35.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="23.0" prefWidth="323.0" text="Working Days">
+                                       <font>
+                                          <Font name="Calibri Bold" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="80.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="41.0" prefWidth="202.0" text="Working Time (Per Day)">
+                                       <font>
+                                          <Font name="Calibri Bold" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="120.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="391.0" prefWidth="587.0">
+                           <children>
+                              <ComboBox fx:id="combo_working_days_type" prefHeight="25.0" prefWidth="241.0" promptText="Weekday/Weekend" />
+                              <ComboBox fx:id="combo_number_of_working_days" prefHeight="25.0" prefWidth="240.0" promptText="1 - 7">
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="numberOfWorkingDaysAddBtn" mnemonicParsing="false" onAction="#addNumberOfWorkingDays" prefHeight="33.0" prefWidth="113.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Add" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/iconfinder_floppy_285657.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#deleteNumberOfWorkingDays" prefHeight="34.0" prefWidth="99.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/iconfinder_Delete_2290850.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <HBox.margin>
+                                          <Insets left="50.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox maxWidth="-Infinity" prefHeight="19.0" prefWidth="647.0">
+                                 <children>
+                                    <CheckBox fx:id="MondayCombo" mnemonicParsing="false" text="Monday">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </CheckBox>
+                                    <CheckBox fx:id="TuesdayCombo" mnemonicParsing="false" text="Tuesday">
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </CheckBox>
+                                    <CheckBox fx:id="WednesdayCombo" mnemonicParsing="false" text="Wednesday">
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </CheckBox>
+                                    <CheckBox fx:id="ThursdayCombo" mnemonicParsing="false" text="Thursday">
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </CheckBox>
+                                    <CheckBox fx:id="FridayCombo" mnemonicParsing="false" text="Friday">
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </CheckBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox fx:id="SaturdayCombo" mnemonicParsing="false" text="Saturday">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                    <CheckBox fx:id="SundayCombo" mnemonicParsing="false" text="Sunday">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="workingDaysAddBtn" mnemonicParsing="false" onAction="#onWorkingDaysUpdateButtonClicked" prefHeight="36.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Add" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/iconfinder_button_blue_repeat_40719.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onWorkingDaysDeleteButtonClicked" prefHeight="36.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/iconfinder_Delete_2290850.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <HBox.margin>
+                                          <Insets left="50.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="54.0" prefWidth="624.0">
+                                 <children>
+                                    <TextField fx:id="hoursTextFiled" />
+                                    <Label text="Hours">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="3.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="minutesTextFiled">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Label text="Minutes">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="3.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="105.0" prefWidth="624.0">
+                                 <children>
+                                    <Button fx:id="workingTimeDurationAddBtn" mnemonicParsing="false" onAction="#addWorkingTimeDuration" prefHeight="38.0" prefWidth="103.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Add" textFill="WHITE">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/iconfinder_floppy_285657.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#deleteWorkingTimeDuration" prefHeight="37.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/iconfinder_Delete_2290850.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <HBox.margin>
+                                          <Insets left="50.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Button fx:id="addTimeSlotButton" mnemonicParsing="false" onAction="#navigateTimeSlots" prefHeight="37.0" prefWidth="302.0" text="ADD TIME SLOTS" textFill="#120d0ddb">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" top="30.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets top="50.0" />
+         </padding>
+      </VBox>
+      <Label alignment="CENTER" layoutX="497.0" layoutY="81.0" prefHeight="47.0" prefWidth="240.0" text="Working Days &amp; Hours" AnchorPane.leftAnchor="497.0" AnchorPane.rightAnchor="354.0">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Label>
+    </children>
+   <effect>
+      <DropShadow />
+   </effect> 
+</AnchorPane>

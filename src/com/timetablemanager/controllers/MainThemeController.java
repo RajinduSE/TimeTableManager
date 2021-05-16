@@ -78,6 +78,19 @@ public class MainThemeController implements Initializable {
 
     @FXML
     private void navigateWorkDaysHrs(ActionEvent event) {
+        try {
+            Stage stage = (Stage)btnWorkDaysHrs.getScene().getWindow();
+            Stage locationStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/WorkingDayHour.fxml"));
+            locationStage.setResizable(false);
+            Scene scene = new Scene(root);
+            locationStage.setScene(scene);
+            locationStage.show();
+            stage.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

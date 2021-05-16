@@ -97,15 +97,14 @@ public class GroupRoomController implements Initializable {
 
     @FXML
     private void changeGroup(ActionEvent event) {
-        group = cbGroup.getValue();
         cbSubGroup.setValue("Select Sub-Group");
-
+        group = cbGroup.getValue();
     }
 
     @FXML
     private void changeSubGroup(ActionEvent event) {
-        subGroup = cbSubGroup.getValue();
         cbGroup.setValue("Select Group");
+        subGroup = cbSubGroup.getValue();
     }
 
     @FXML
@@ -115,9 +114,11 @@ public class GroupRoomController implements Initializable {
 
     @FXML
     private void buttonHandler(ActionEvent event) {
+        GroupRoom groupRoom = tvGroupRooms.getSelectionModel().getSelectedItem();
+        SubGroupRoom subGroupRoom = tvSubGroupRoom.getSelectionModel().getSelectedItem();
         if(event.getSource() == btnSave){
             insertRecord();
-        }else if(event.getSource() == btnDelete){
+        }else if(event.getSource() == btnDelete && (groupRoom != null || subGroupRoom != null)){
             deleteRecord();
             clearRecord();
         }

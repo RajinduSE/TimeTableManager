@@ -27,10 +27,11 @@
       </VBox>
       <VBox layoutX="667.0" layoutY="149.0" prefHeight="490.0" prefWidth="521.0">
          <children>
-            <TableView prefHeight="504.0" prefWidth="521.0">
+            <TableView fx:id="tvSessioRoom" onMouseClicked="#handleMouseSessionRoom" prefHeight="504.0" prefWidth="521.0">
               <columns>
-                <TableColumn prefWidth="371.0" text="Session" />
-                <TableColumn prefWidth="149.0" text="Room" />
+                  <TableColumn fx:id="colId" prefWidth="99.0" text="ID" />
+                <TableColumn fx:id="colSession" prefWidth="311.0" text="Session" />
+                <TableColumn fx:id="colRoom" prefWidth="110.0" text="Room" />
               </columns>
                <effect>
                   <DropShadow />
@@ -49,7 +50,7 @@
                               <Font name="Calibri Bold" size="20.0" />
                            </font>
                         </Label>
-                        <ComboBox prefHeight="31.0" prefWidth="192.0" />
+                        <ComboBox fx:id="cbSession" onAction="#changeSession" prefHeight="31.0" prefWidth="192.0" promptText="Select Session" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="313.0" prefWidth="200.0">
@@ -59,14 +60,14 @@
                               <Font name="Calibri Bold" size="20.0" />
                            </font>
                         </Label>
-                        <ComboBox prefHeight="31.0" prefWidth="138.0" />
+                        <ComboBox fx:id="cbRoom" onAction="#changeRoom" prefHeight="31.0" prefWidth="138.0" promptText="Select Room" />
                      </children>
                   </VBox>
                </children>
             </HBox>
          </children>
       </VBox>
-            <Button layoutX="375.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+            <Button fx:id="btnDelete" layoutX="375.0" layoutY="573.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -80,7 +81,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button layoutX="506.0" layoutY="573.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
+      <Button fx:id="btnSave" layoutX="506.0" layoutY="573.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="47.0" prefWidth="102.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Save" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>

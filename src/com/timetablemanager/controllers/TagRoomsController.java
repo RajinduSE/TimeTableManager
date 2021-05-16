@@ -77,9 +77,11 @@ public class TagRoomsController implements Initializable {
     
     @FXML
     private void buttonHandler(ActionEvent event) {
+        LecTuteRoom lecTuteRoom = tvLecTuteRooms.getSelectionModel().getSelectedItem();
+        PracRoom pracRoom = tvPracRooms.getSelectionModel().getSelectedItem();
         if(event.getSource() == btnSave){
             insertRecord();
-        }else if(event.getSource() == btnDelete){
+        }else if(event.getSource() == btnDelete && (lecTuteRoom != null || pracRoom != null)){
             deleteRecord();
             clearRecord();
         }

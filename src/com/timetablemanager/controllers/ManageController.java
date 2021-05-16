@@ -34,6 +34,18 @@ public class ManageController implements Initializable {
     private Button btnMngGrp;
     @FXML
     private Button btnMngSession;
+    @FXML
+    private Button btnMngConsecutive;
+    @FXML
+    private Button btnMngParallel;
+    @FXML
+    private Button btnMngNonOverlapping;
+    @FXML
+    private Button btnMngSessionRoom;
+    @FXML
+    private Button btnMngConsRoom;
+    @FXML
+    private Button btnMngPreffered;
 
     /**
      * Initializes the controller class.
@@ -117,6 +129,70 @@ public class ManageController implements Initializable {
             Stage stage = (Stage)btnMngSession.getScene().getWindow();
             Stage locationStage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/Session.fxml"));
+            locationStage.setResizable(false);
+            Scene scene = new Scene(root);
+            locationStage.setScene(scene);
+            locationStage.show();
+            stage.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void ManageConsecutiveSessions(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void ManageParallelSessons(ActionEvent event) {
+    }
+
+    @FXML
+    private void ManageNonOverlappingSessions(ActionEvent event) {
+    }
+
+    @FXML
+    private void ManageSessionRoom(ActionEvent event) {
+        try {
+            Stage stage = (Stage)btnMngSessionRoom.getScene().getWindow();
+            Stage locationStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/SessionRoom.fxml"));
+            locationStage.setResizable(false);
+            Scene scene = new Scene(root);
+            locationStage.setScene(scene);
+            locationStage.show();
+            stage.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void ManageConsRoom(ActionEvent event) {
+        try {
+            Stage stage = (Stage)btnMngConsRoom.getScene().getWindow();
+            Stage locationStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/ConsecutiveSessionRoom.fxml"));
+            locationStage.setResizable(false);
+            Scene scene = new Scene(root);
+            locationStage.setScene(scene);
+            locationStage.show();
+            stage.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void ManagePreffered(ActionEvent event) {
+        try {
+            Stage stage = (Stage)btnMngPreffered.getScene().getWindow();
+            Stage locationStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/PreferredRoom.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);

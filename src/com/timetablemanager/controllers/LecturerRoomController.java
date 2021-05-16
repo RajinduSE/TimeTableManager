@@ -64,6 +64,7 @@ public class LecturerRoomController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        showLecturerRoom();
         cbLecturer.setItems(getLecturerList());
         cbRoom.setItems(getRoomList());
     }    
@@ -88,9 +89,10 @@ public class LecturerRoomController implements Initializable {
 
     @FXML
     private void buttonHandler(ActionEvent event) {
+        LecturerRoom lecturerRoom = tvLecturerRoom.getSelectionModel().getSelectedItem();
         if(event.getSource() == btnSave){
             insertRecord();
-        }else if(event.getSource() == btnDelete){
+        }else if(event.getSource() == btnDelete && lecturerRoom != null){
             deleteRecord();
             clearRecord();
         }
