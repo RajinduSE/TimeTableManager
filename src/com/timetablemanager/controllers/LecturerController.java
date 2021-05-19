@@ -91,6 +91,7 @@ public class LecturerController implements Initializable {
     private String center = null;
     private Integer level = null;
     private String building = null;
+    private String lecId = null;
     
     ObservableList<String> facultyList = FXCollections.observableArrayList("Computing" ,"Engineering","Business","Humanities & Sciences");
     ObservableList<String> departmentList = FXCollections.observableArrayList("IT" ,"SE","Network","ISE");
@@ -114,8 +115,16 @@ public class LecturerController implements Initializable {
 
     @FXML
     private void buttonHandler(ActionEvent event) {
+        Lecturer lecturer = tvLecturers.getSelectionModel().getSelectedItem();
         if(event.getSource() == btnSave){
             insertRecord();
+        }else if(event.getSource() == btnUpdate && lecturer != null){
+            updateRecord();
+        }else if(event.getSource() == btnDelete && lecturer != null){
+            deleteRecord();
+            clearRecord();
+        }else if(event.getSource() == btnClear){
+            clearRecord();
         }
     }
 
@@ -172,7 +181,7 @@ public class LecturerController implements Initializable {
     
     private void updateRecord(){
         String query = "UPDATE  lecturers SET name  = '" + tfName.getText() + "', empId = '" + tfEmpId.getText() + "', department = " +
-                "'" + department + "'" + ", center = " + center + "'" + ", building = " + building + "'" + ", faculty = " + faculty + "'" + ", level = " + level + " WHERE id = L1";
+                "'" + department + "'" + ", center = " + "'" + center + "'" + ", building = " + "'" + building + "'" + ", faculty = " + "'" + faculty + "'" + ", level = " +  "'" + level + "'" +", rank = " + "'" +tfRank.getText() + "'" +" WHERE id = " + "'" + lecId + "'";
         executeQuery(query);
         showLecturers();
     }
@@ -245,5 +254,42 @@ public class LecturerController implements Initializable {
                 ex.printStackTrace();
             }
         }
+    }
+
+    @FXML
+    private void handleMouseActions(MouseEvent event) {
+        Lecturer lecturer = tvLecturers.getSelectionModel().getSelectedItem();
+        lecId = lecturer.getId();
+        tfName.setText(lecturer.getName());
+        tfEmpId.setText(String.valueOf(lecturer.getEmpId()));
+        cbFaculty.setValue(lecturer.getFaculty());
+        cbDepartment.setValue(lecturer.getDepartment());
+        cbCenter.setValue(lecturer.getCenter());
+        cbBuilding.setValue(lecturer.getBuilding());
+        cbLevel.setValue(lecturer.getLevel());
+        tfRank.setText(lecturer.getRank());
+    }
+    
+    private void deleteRecord(){
+        String query = "DELETE FROM lecturers WHERE id = " + "'" + lecId + "'";
+        executeQuery(query);
+        showLecturers();
+    }
+    
+    private void clearRecord(){
+        tfName.setText(null);
+        tfEmpId.setText(null);
+        cbFaculty.setValue("Select Faculty");
+        cbDepartment.setValue("Select Department");
+        cbCenter.setValue("Select Center");
+        cbBuilding.setValue("Select Building");
+        cbLevel.setValue(1);
+        tfRank.setText(null);
+    }
+
+    @FXML
+    private void generateRank(ActionEvent event) {
+        String value = String.valueOf(cbLevel.getValue()) + "." + String.format("%06d", Integer.parseInt(tfEmpId.getText()));;
+        tfRank.setText(value);
     }
 }

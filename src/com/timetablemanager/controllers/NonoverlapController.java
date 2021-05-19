@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.timetablemanager.controllers;
-import com.timetablemanager.models.ConsecutiveSession;
+import com.timetablemanager.models.NonOverlap;
 import com.timetablemanager.utils.ConnectionUtil;
 import com.timetablemanager.utils.IDGenerator;
 import java.net.URL;
@@ -30,27 +30,27 @@ import javafx.scene.input.MouseEvent;
  *
  * @author Asus
  */
-public class ConsecutiveSessionController implements Initializable {
+public class NonoverlapController implements Initializable {
 
     @FXML
     private Button btnAddSession;
     @FXML
+    private TableView<NonOverlap> tvNonoverlap;
+    @FXML
+    private TableColumn<NonOverlap, String> colId;
+    @FXML
+    private TableColumn<NonOverlap, String> colN1;
+    @FXML
+    private TableColumn<NonOverlap, String> colN2;
+    @FXML
     private Button btnDelete;
     @FXML
-    private ComboBox<String> cbC1;
+    private ComboBox<String> cbNs2;
     @FXML
-    private ComboBox<String> cbC2;
-    @FXML
-    private TableView<ConsecutiveSession> tvConsec;
-    @FXML
-    private TableColumn<ConsecutiveSession, String> colId;
-    @FXML
-    private TableColumn<ConsecutiveSession, String> colS1;
-    @FXML
-    private TableColumn<ConsecutiveSession, String> colS2;
+    private ComboBox<String> cbNs1;
 
     
-   private ConnectionUtil conUtil = new ConnectionUtil();
+    private ConnectionUtil conUtil = new ConnectionUtil();
     private Connection conn;
     private Statement st;
     private PreparedStatement ps;
@@ -58,41 +58,60 @@ public class ConsecutiveSessionController implements Initializable {
     private String id;
     private String session1;
     private String session2;
-
-    
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        showConsecutiveSession();
-        cbC1.setItems(getSession1());
-        cbC2.setItems(getSession2());
+        showNonOverlap();
+        cbNs1.setItems(getSession1());
+        cbNs2.setItems(getSession2());
     }    
 
     @FXML
     private void handleButton(ActionEvent event) {
-         ConsecutiveSession consecutivesession = tvConsec.getSelectionModel().getSelectedItem();
+        NonOverlap nonoverlap = tvNonoverlap.getSelectionModel().getSelectedItem();
         if(event.getSource() == btnAddSession){
             insertRecord();
-        }else if(event.getSource() == btnDelete && consecutivesession != null){
+        }else if(event.getSource() == btnDelete && nonoverlap != null){
+            deleteRecord();
+        }
+    }
+
+    @FXML
+    private void handleMouseSession(MouseEvent event) {
+        NonOverlap nonoverlap = tvNonoverlap.getSelectionModel().getSelectedItem();
+        id = nonoverlap.getId();
+        cbNs1.setValue("Select Session1");
+        cbNs2.setValue("Select Session2");
+    }
+
+    private void handleButton(MouseEvent event) {
+                NonOverlap nonoverlap = tvNonoverlap.getSelectionModel().getSelectedItem();
+        if(event.getSource() == btnAddSession){
+            insertRecord();
+        }else if(event.getSource() == btnDelete && nonoverlap != null){
             deleteRecord();
         }
     }
 
     @FXML
     private void changeSession(ActionEvent event) {
-        cbC1.setItems(getSession1());
-        cbC2.setItems(getSession2());
-    } 
+        session1 = cbNs1.getValue();
+        session2 = cbNs2.getValue();
+    }
 
-    @FXML
-    private void handleMouseSession(MouseEvent event) {
-        ConsecutiveSession consecutivesession = tvConsec.getSelectionModel().getSelectedItem();
-        id = consecutivesession.getId();
-        cbC1.setValue("Select Session1");
-        cbC2.setValue("Select Session2");
+    private void showNonOverlap() {
+                ObservableList<NonOverlap> list = getNonOverlapList();
+        colId.setCellValueFactory(new PropertyValueFactory<NonOverlap, String>("id"));
+        colN1.setCellValueFactory(new PropertyValueFactory<NonOverlap, String>("session1"));
+        colN2.setCellValueFactory(new PropertyValueFactory<NonOverlap, String>("session2"));
+             
+        tvNonoverlap.setItems(list);
     }
 
     private ObservableList<String> getSession1() {
-                  ObservableList<String> sessionList = FXCollections.observableArrayList();
+                 ObservableList<String> sessionList = FXCollections.observableArrayList();
         conn = conUtil.getConnection();
         String query = "SELECT session FROM sessions";
         try{
@@ -146,10 +165,10 @@ public class ConsecutiveSessionController implements Initializable {
     private void insertRecord() {
         conn = conUtil.getConnection(); 
         IDGenerator nextId = new IDGenerator();
-        String nextgeneratedId = nextId.generateId("consecutives", "CS");
+        String nextgeneratedId = nextId.generateId("nonoverlaps", "NO");
         try{   
             // create a prepared statement
-            String query = "insert into consecutives(`id`,`session1`,`session2`) values (?, ?, ?)"; 
+            String query = "insert into nonoverlaps(`id`,`session1`,`session2`) values (?, ?, ?)"; 
             ps = conn.prepareStatement(query); 
             // binding values
             ps.setString(1, nextgeneratedId); 
@@ -169,14 +188,14 @@ public class ConsecutiveSessionController implements Initializable {
                 ex.printStackTrace();
             }
         }
-        showConsecutiveSession();
+        showNonOverlap();
     }
 
     private void deleteRecord() {
-        conn = conUtil.getConnection();
+      conn = conUtil.getConnection();
         try{
             // create a prepared statement
-            String query = "delete from consecutives where id=?"; 
+            String query = "delete from nonoverlaps where id=?"; 
             ps = conn.prepareStatement(query); 
             // binding values
             ps.setString(1, id); 
@@ -194,29 +213,20 @@ public class ConsecutiveSessionController implements Initializable {
                 ex.printStackTrace();
             }
         }
-        showConsecutiveSession();
+        showNonOverlap();
     }
 
-    private void showConsecutiveSession() {
-                ObservableList<ConsecutiveSession> list = getConsecutiveSessionList();
-        colId.setCellValueFactory(new PropertyValueFactory<ConsecutiveSession, String>("id"));
-        colS1.setCellValueFactory(new PropertyValueFactory<ConsecutiveSession, String>("session1"));
-        colS2.setCellValueFactory(new PropertyValueFactory<ConsecutiveSession, String>("session2"));
-             
-        tvConsec.setItems(list);
-    }
-
-    private ObservableList<ConsecutiveSession> getConsecutiveSessionList() {
-        ObservableList<ConsecutiveSession> ConsecutiveSessionList = FXCollections.observableArrayList();
+    private ObservableList<NonOverlap> getNonOverlapList() {
+                        ObservableList<NonOverlap> NonOverlapList = FXCollections.observableArrayList();
         conn = conUtil.getConnection();
-        String query = "SELECT * FROM consecutives";
+        String query = "SELECT * FROM nonoverlaps";
         try{
             st = conn.createStatement();
             rs = st.executeQuery(query);
-            ConsecutiveSession consecutivesession;
+            NonOverlap nonoverlap;
             while(rs.next()){
-                consecutivesession = new ConsecutiveSession(rs.getString("id"), rs.getString("session1"), rs.getString("session2"));
-                ConsecutiveSessionList.add(consecutivesession);
+                nonoverlap = new NonOverlap(rs.getString("id"), rs.getString("session1"), rs.getString("session2"));
+                NonOverlapList.add(nonoverlap);
             }   
         }catch(Exception ex){
             ex.printStackTrace();
@@ -229,11 +239,8 @@ public class ConsecutiveSessionController implements Initializable {
                 ex.printStackTrace();
             }
         }
-        ObservableList<ConsecutiveSession> getConsecutiveSessionList = FXCollections.observableArrayList();
-        return ConsecutiveSessionList;
+        ObservableList<NonOverlap> getNonOverlapList = FXCollections.observableArrayList();
+        return getNonOverlapList;
     }
-    
-   
-   
     
 }

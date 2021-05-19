@@ -107,7 +107,7 @@ public class TimeTableManagerController implements Initializable {
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
             locationStage.show();
-            stage.close();
+ 
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -124,7 +124,7 @@ public class TimeTableManagerController implements Initializable {
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
             locationStage.show();
-            stage.close();
+        
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -141,7 +141,6 @@ public class TimeTableManagerController implements Initializable {
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
             locationStage.show();
-            stage.close();
         }
         catch (IOException e) {
             e.printStackTrace();

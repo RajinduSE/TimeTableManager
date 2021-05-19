@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="684.0" prefWidth="1214.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.timetablemanager.controllers.NonoverlapController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="684.0" prefWidth="1240.0">
+         <children>
+            <fx:include source="MainTheme.fxml" />
+            <Button fx:id="btnAddSession" layoutX="362.0" layoutY="423.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="47.0" prefWidth="111.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Add session" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Accordion layoutX="229.0" layoutY="327.0" />
+            <TableView fx:id="tvNonoverlap" layoutX="659.0" layoutY="147.0" onMouseClicked="#handleMouseSession" prefHeight="415.0" prefWidth="528.0">
+               <columns>
+                  <TableColumn fx:id="colId" prefWidth="82.0" text="ID" />
+                  <TableColumn fx:id="colN1" prefWidth="237.0" text="Session 1" />
+                  <TableColumn fx:id="colN2" prefWidth="208.0" text="Session 2" />
+               </columns>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TableView>
+            <Group layoutX="307.0" layoutY="397.0" />
+            <Button fx:id="btnDelete" layoutX="902.0" layoutY="598.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="47.0" prefWidth="98.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Delete" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/iconfinder_Delete_2290850.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Label alignment="CENTER" layoutX="547.0" layoutY="51.0" prefHeight="47.0" prefWidth="282.0" text="Non-Overlapping sessions">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="238.0" layoutY="502.0" prefHeight="31.0" prefWidth="358.0" text="Non-overlapping sessions added successfully">
+               <font>
+                  <Font name="Book Antiqua" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbNs2" layoutX="404.0" layoutY="312.0" onAction="#changeSession" prefHeight="31.0" prefWidth="192.0" />
+            <Label layoutX="264.0" layoutY="316.0" prefHeight="23.0" prefWidth="86.0" text="Session 2">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="263.0" layoutY="237.0" prefHeight="23.0" prefWidth="86.0" text="Session 1">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbNs1" layoutX="404.0" layoutY="233.0" onAction="#changeSession" prefHeight="31.0" prefWidth="192.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

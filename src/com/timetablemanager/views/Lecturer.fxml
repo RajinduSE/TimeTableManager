@@ -29,7 +29,7 @@
       </VBox>
       <VBox layoutX="249.0" layoutY="119.0" prefHeight="234.0" prefWidth="769.0">
          <children>
-            <TableView fx:id="tvLecturers" prefHeight="234.0" prefWidth="789.0">
+            <TableView fx:id="tvLecturers" onMouseClicked="#handleMouseActions" prefHeight="234.0" prefWidth="789.0">
               <columns>
                   <TableColumn fx:id="colId" prefWidth="69.0" text="ID" />
                   <TableColumn fx:id="colName" prefWidth="187.0" text="Name" />
@@ -195,7 +195,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="btnGenarate" layoutX="1031.0" layoutY="590.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="159.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Generate Rank" textFill="WHITE">
+      <Button fx:id="btnGenarate" layoutX="1031.0" layoutY="590.0" mnemonicParsing="false" onAction="#generateRank" prefHeight="47.0" prefWidth="159.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Generate Rank" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>

@@ -180,6 +180,19 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void navigateTags(ActionEvent event) {
+        try {
+            Stage stage = (Stage)btnManage.getScene().getWindow();
+            Stage locationStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/Tag.fxml"));
+            locationStage.setResizable(false);
+            Scene scene = new Scene(root);
+            locationStage.setScene(scene);
+            locationStage.show();
+            stage.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -218,6 +231,19 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void navigateStudentGroups(ActionEvent event) {
+        try {
+            Stage stage = (Stage)btnManage.getScene().getWindow();
+            Stage locationStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/ManageStudent.fxml"));
+            locationStage.setResizable(false);
+            Scene scene = new Scene(root);
+            locationStage.setScene(scene);
+            locationStage.show();
+            stage.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
     @FXML

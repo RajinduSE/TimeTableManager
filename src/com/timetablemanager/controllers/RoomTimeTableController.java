@@ -115,10 +115,9 @@ public class RoomTimeTableController implements Initializable {
             String day = getDay(i);
             for(int j = 1; j <= 9; j++){
                 String slot = getSlot(j);
-                ObservableList<String> sessionList = getSessions(day, slot);
-                String matchSession = getMatchSession(room, sessionList);
-                
-                Label lebel = new Label(matchSession);
+                String session = getSession(day, slot, room);
+                               
+                Label lebel = new Label(session);
                 grid.add(lebel, i, j);
             }
         }
@@ -134,7 +133,7 @@ public class RoomTimeTableController implements Initializable {
         try {
             Stage stage = (Stage)btnGenerate.getScene().getWindow();
             Stage locationStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/TimeTableManager.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/RoomTimeTable.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
@@ -199,17 +198,15 @@ public class RoomTimeTableController implements Initializable {
         return null;
     }
     
-    public ObservableList<String> getSessions(String day, String slot){
-        ObservableList<String> sessionList = FXCollections.observableArrayList();
+    public String getSession(String day, String slot, String room){
         conn = conUtil.getConnection();
-        String query = "SELECT session FROM time_table_all WHERE day = " + "'" + day + "' AND slot = " + "'" + slot + "'";
+        String session = "";
+        String query = "SELECT session FROM time_table_all WHERE day = " + "'" + day + "' AND slot = " + "'" + slot + "' AND room = " + "'" + room + "'";
         try{
             st = conn.createStatement();
             rs = st.executeQuery(query);
-            String session;
-            while(rs.next()){
+            if(rs.next()){
                 session = rs.getString("session");
-                sessionList.add(session);
             }   
         }catch(Exception ex){
             ex.printStackTrace();
@@ -222,20 +219,7 @@ public class RoomTimeTableController implements Initializable {
                 ex.printStackTrace();
             }
         }
-        return sessionList;
-    }
-    
-    private String getMatchSession(String room, ObservableList<String> sessionList) {
-        String output = "";
-        for(String t:sessionList){
-            String[] splits = t.split("-");
-            for(String s: splits){
-                if(s.equals(room)){
-                    output += t + "\n";
-                }
-            }
-        }
-        return output;
+        return session;
     }
     
     public void captureAndSaveDisplay(){

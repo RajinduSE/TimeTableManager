@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.timetablemanager.controllers.StudentGroupTimeTableController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetablemanager.controllers.StudentGroupTimeTableController">
     <children>
       <GridPane fx:id="grid" gridLinesVisible="true" layoutX="21.0" layoutY="119.0" onMouseClicked="#mouseClick" prefHeight="646.0" prefWidth="1759.0">
         <columnConstraints>
@@ -180,7 +180,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnBack" layoutX="21.0" layoutY="39.0" mnemonicParsing="false" onAction="#back" prefHeight="47.0" prefWidth="111.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Back" textFill="WHITE">
+      <Button fx:id="btnBack" layoutX="21.0" layoutY="39.0" mnemonicParsing="false" onAction="#back" prefHeight="47.0" prefWidth="111.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Refresh" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>

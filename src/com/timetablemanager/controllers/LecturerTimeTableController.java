@@ -137,7 +137,7 @@ public class LecturerTimeTableController implements Initializable {
         try {
             Stage stage = (Stage)btnGenerate.getScene().getWindow();
             Stage locationStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/TimeTableManager.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/LecturerTimeTable.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);

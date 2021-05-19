@@ -180,7 +180,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnBack" layoutX="21.0" layoutY="39.0" mnemonicParsing="false" onAction="#back" prefHeight="47.0" prefWidth="111.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Back" textFill="WHITE">
+      <Button fx:id="btnBack" layoutX="21.0" layoutY="39.0" mnemonicParsing="false" onAction="#back" prefHeight="47.0" prefWidth="111.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Refresh" textFill="WHITE">
          <effect>
             <DropShadow />
          </effect>

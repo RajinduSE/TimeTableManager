@@ -89,7 +89,22 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="138.0" prefWidth="184.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="97.0" prefWidth="178.0" text="Not Available Times">
+                  <Button fx:id="btnNotAvailableTimes" mnemonicParsing="false" onAction="#ManageNotAvailableTimes" prefHeight="97.0" prefWidth="178.0" text="Not Available ">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="138.0" prefWidth="184.0">
+               <children>
+                  <Button fx:id="btnPreffered" mnemonicParsing="false" onAction="#ManagePrefferedSessions" prefHeight="97.0" prefWidth="178.0" text="Preffered">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -222,6 +237,21 @@
             <VBox alignment="CENTER" prefHeight="109.0" prefWidth="178.0">
                <children>
                   <Button fx:id="btnMngPreffered" mnemonicParsing="false" onAction="#ManagePreffered" prefHeight="97.0" prefWidth="175.0" text="Preffered">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="109.0" prefWidth="177.0">
+               <children>
+                  <Button fx:id="btnMngNotAvailableRoom" mnemonicParsing="false" onAction="#ManageNotAvailableRoom" prefHeight="97.0" prefWidth="178.0" text="Not Available">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
