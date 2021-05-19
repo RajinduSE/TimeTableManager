@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.timetablemanager.controllers.ConsecutiveSessionSlotsMngController">
+    <children>
+        <fx:include source="MainTheme.fxml" />
+      <VBox alignment="CENTER" layoutX="246.0" layoutY="75.0" prefHeight="39.0" prefWidth="958.0">
+         <children>
+            <Label text="Consecutive Sessions Slots">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Label layoutX="251.0" layoutY="419.0" text="Session 1">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="877.0" layoutY="419.0" text="Session 2">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="582.0" layoutY="446.0" text="Day">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="882.0" layoutY="478.0" text="Slot">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbSession1" layoutX="350.0" layoutY="417.0" onAction="#changeSession1" prefHeight="31.0" prefWidth="166.0" promptText="Select Session1" />
+      <ComboBox fx:id="cbSession2" layoutX="995.0" layoutY="417.0" onAction="#changeSession2" prefHeight="31.0" prefWidth="166.0" promptText="Select Session2" />
+      <ComboBox fx:id="cbDay" layoutX="657.0" layoutY="444.0" onAction="#changeDay" prefHeight="31.0" prefWidth="166.0" promptText="Select Day" />
+      <ComboBox fx:id="cbSlot1" layoutX="350.0" layoutY="489.0" onAction="#changeSlot1" prefHeight="31.0" prefWidth="166.0" promptText="Select Slot" />
+      <Button fx:id="btnSession1" layoutX="350.0" layoutY="592.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="166.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Add Session 1" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconfinder_floppy_285657.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="251.0" layoutY="491.0" text="Slot">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbSlot2" layoutX="995.0" layoutY="474.0" onAction="#changeSlot2" prefHeight="31.0" prefWidth="166.0" promptText="Select Slot" />
+      <Button fx:id="btnSession2" layoutX="882.0" layoutY="592.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="47.0" prefWidth="166.0" styleClass="button_menu" stylesheets="@../stylesheets/dashboard.css" text="Add Session 2" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/iconfinder_floppy_285657.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tvConsecutives" layoutX="250.0" layoutY="122.0" onMouseClicked="#handleMouseAction" prefHeight="200.0" prefWidth="915.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="84.0" text="ID" />
+          <TableColumn fx:id="colSession1" prefWidth="366.0" text="Session 1" />
+            <TableColumn fx:id="colSession2" prefWidth="353.0" text="Session 2" />
+            <TableColumn fx:id="colRoom" prefWidth="111.0" text="Room" />
+        </columns>
+      </TableView>
+    </children>
+</AnchorPane>

@@ -82,6 +82,8 @@ public class DashboardController implements Initializable {
     private Button btnDashboard;
     @FXML
     private Button btnViewLectures;
+    @FXML
+    private Button btnTimeTable;
 
     /**
      * Initializes the controller class.
@@ -199,6 +201,19 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void generateTimeTable(ActionEvent event) {
+        try {
+            Stage stage = (Stage)btnGenerate.getScene().getWindow();
+            Stage locationStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/TimeTableManager.fxml"));
+            locationStage.setResizable(false);
+            Scene scene = new Scene(root);
+            locationStage.setScene(scene);
+            locationStage.show();
+            stage.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

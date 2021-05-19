@@ -21,7 +21,7 @@ public class IDGenerator {
         String currentId = null;
         String nextId = null;
         conn = conUtil.getConnection();
-        String query = "SELECT id FROM " + tableName + " ORDER BY id DESC LIMIT 1";
+        String query = "SELECT id FROM " + tableName + " ORDER BY LENGTH(id) DESC,id DESC LIMIT 1";
         try{
             st = conn.createStatement();
             rs = st.executeQuery(query);

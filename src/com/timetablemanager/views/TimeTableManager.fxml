@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timetablemanager.controllers.TimeTableManagerController">
+    <children>
+        <fx:include source="MainTheme.fxml" />
+      <Button fx:id="btnParallel" layoutX="261.0" layoutY="119.0" mnemonicParsing="false" onAction="#navigateParallel" prefHeight="99.0" prefWidth="155.0" text="Parallel Session">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <Button fx:id="btnNormal" layoutX="471.0" layoutY="119.0" mnemonicParsing="false" onAction="#navigateNormal" prefHeight="99.0" prefWidth="155.0" text="Normal">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <Button fx:id="btnConsecutive" layoutX="669.0" layoutY="119.0" mnemonicParsing="false" onAction="#navigateConsecutive" prefHeight="99.0" prefWidth="155.0" text="Consecutive">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <Button fx:id="btnTimeTable" layoutX="862.0" layoutY="119.0" mnemonicParsing="false" onAction="#navigateTimeTable" prefHeight="99.0" prefWidth="171.0" text="Lecturer Time Table">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnGroup" layoutX="261.0" layoutY="264.0" mnemonicParsing="false" onAction="#navigateGroup" prefHeight="99.0" prefWidth="155.0" text="Group Time Table">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnRoom" layoutX="471.0" layoutY="264.0" mnemonicParsing="false" onAction="#navigateRoom" prefHeight="99.0" prefWidth="155.0" text="Room Time Table">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>

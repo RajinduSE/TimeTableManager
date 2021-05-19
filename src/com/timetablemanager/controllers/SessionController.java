@@ -174,7 +174,7 @@ public class SessionController implements Initializable {
     
     public String generateSession(){
         String session;
-        if(lecturer2.isEmpty()){
+        if(lecturer2.isEmpty() || lecturer2.equals("Select Lecturer1")){
             session = lecturer1 + "-" + cbSubCode.getValue() + "-" + subject + "-" + tag + "-" + cbGroup.getValue() + "-" + tfCount.getText() + "-" + tfDuration.getText();
         }else{
             session = lecturer1 + "-" + lecturer2 + "-" + cbSubCode.getValue() + "-" + subject + "-" + tag + "-" + cbGroup.getValue() + "-" + tfCount.getText() + "-" + tfDuration.getText();

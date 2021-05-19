@@ -7,8 +7,6 @@ package com.timetablemanager.controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -25,28 +23,20 @@ import javafx.stage.Stage;
  *
  * @author Rajindu's PC
  */
-public class MainThemeController implements Initializable {
+public class TimeTableManagerController implements Initializable {
 
     @FXML
-    private Button btnWorkDaysHrs;
+    private Button btnParallel;
     @FXML
-    private Button btnLectures;
+    private Button btnNormal;
     @FXML
-    private Button btnSubjects;
+    private Button btnConsecutive;
     @FXML
-    private Button btnStudentGroups;
+    private Button btnTimeTable;
     @FXML
-    private Button btnTags;
+    private Button btnGroup;
     @FXML
-    private Button btnLocations;
-    @FXML
-    private Button btnManage;
-    @FXML
-    private Button btnGenerate;
-    @FXML
-    private TextField tfDate;
-    @FXML
-    private Button btnDashboard;
+    private Button btnRoom;
 
     /**
      * Initializes the controller class.
@@ -54,17 +44,14 @@ public class MainThemeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        Date date = new Date();
-        SimpleDateFormat formattedDate = new SimpleDateFormat("MM/dd/yyyy");
-        tfDate.setText(String.valueOf(formattedDate.format(date)));
     }    
 
     @FXML
-    private void navigateLocations(ActionEvent event) {
+    private void navigateParallel(ActionEvent event) {
         try {
-            Stage stage = (Stage)btnLocations.getScene().getWindow();
+            Stage stage = (Stage)btnParallel.getScene().getWindow();
             Stage locationStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/Location.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/ParellelSessionsSlotsMng.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
@@ -77,11 +64,11 @@ public class MainThemeController implements Initializable {
     }
 
     @FXML
-    private void navigateWorkDaysHrs(ActionEvent event) {
+    private void navigateNormal(ActionEvent event) {
         try {
-            Stage stage = (Stage)btnWorkDaysHrs.getScene().getWindow();
+            Stage stage = (Stage)btnNormal.getScene().getWindow();
             Stage locationStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/WorkingDayHour.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/NormalSessionSlotsMng.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
@@ -94,11 +81,11 @@ public class MainThemeController implements Initializable {
     }
 
     @FXML
-    private void navigateLectures(ActionEvent event) {
+    private void navigateConsecutive(ActionEvent event) {
         try {
-            Stage stage = (Stage)btnLectures.getScene().getWindow();
+            Stage stage = (Stage)btnConsecutive.getScene().getWindow();
             Stage locationStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/Lecturer.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/ConsecutiveSessionSlotsMng.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
@@ -111,33 +98,11 @@ public class MainThemeController implements Initializable {
     }
 
     @FXML
-    private void navigateSubjects(ActionEvent event) {
+    private void navigateTimeTable(ActionEvent event) {
         try {
-            Stage stage = (Stage)btnSubjects.getScene().getWindow();
+            Stage stage = (Stage)btnConsecutive.getScene().getWindow();
             Stage locationStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/Subject.fxml"));
-            locationStage.setResizable(false);
-            Scene scene = new Scene(root);
-            locationStage.setScene(scene);
-            locationStage.show();
-            stage.close();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @FXML
-    private void navigateTags(ActionEvent event) {
-    }
-
-    @FXML
-    private void navigateManage(ActionEvent event) {
-        try {
-            Stage stage = (Stage)btnManage.getScene().getWindow();
-            Stage locationStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/Manage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/LecturerTimeTable.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
@@ -150,11 +115,11 @@ public class MainThemeController implements Initializable {
     }
 
     @FXML
-    private void generateTimeTable(ActionEvent event) {
+    private void navigateGroup(ActionEvent event) {
         try {
-            Stage stage = (Stage)btnGenerate.getScene().getWindow();
+            Stage stage = (Stage)btnConsecutive.getScene().getWindow();
             Stage locationStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/TimeTableManager.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/StudentGroupTimeTable.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
@@ -167,15 +132,11 @@ public class MainThemeController implements Initializable {
     }
 
     @FXML
-    private void navigateStudentGroups(ActionEvent event) {
-    }
-
-    @FXML
-    private void navigateDashboard(ActionEvent event) {
+    private void navigateRoom(ActionEvent event) {
         try {
-            Stage stage = (Stage)btnManage.getScene().getWindow();
+            Stage stage = (Stage)btnConsecutive.getScene().getWindow();
             Stage locationStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/Dashboard.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/timetablemanager/views/RoomTimeTable.fxml"));
             locationStage.setResizable(false);
             Scene scene = new Scene(root);
             locationStage.setScene(scene);
@@ -186,5 +147,7 @@ public class MainThemeController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    
     
 }
